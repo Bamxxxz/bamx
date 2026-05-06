@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BamX</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background: #0a0a0a; }
+    .card { transition: all 0.3s; }
+    .card:hover { transform: scale(1.05); }
+    .red-btn { background: #e11d48; }
+    .red-btn:hover { background: #be123c; }
+  </style>
+</head>
+<body class="text-white">
+  <nav class="bg-black py-4 border-b border-red-900">
+    <div class="max-w-6xl mx-auto text-center">
+      <h1 class="text-4xl font-bold tracking-widest text-red-500">BamX</h1>
+    </div>
+  </nav>
+
+  <div class="max-w-6xl mx-auto py-12 px-4">
+    <h2 class="text-3xl font-bold text-center mb-10 text-red-400">Download Now</h2>
+    
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-6" id="videoGrid">
+      <!-- এখানে তোমার ভিডিও যোগ হবে -->
+    </div>
+  </div>
+
+  <script>
+    const videos = [
+      { title: "ভিডিও টাইটেল ১", duration: "12:45", link: "তোমার_ডাউনলোড_লিংক_এখানে_দাও" },
+      { title: "ভিডিও টাইটেল ২", duration: "18:20", link: "তোমার_ডাউনলোড_লিংক_এখানে_দাও" },
+    ];
+
+    const container = document.getElementById('videoGrid');
+    
+    videos.forEach(video => {
+      container.innerHTML += `
+        <div class="card bg-zinc-900 rounded-xl overflow-hidden">
+          <div class="bg-zinc-800 h-48 flex items-center justify-center">
+            <span class="text-red-400 text-6xl">🎥</span>
+          </div>
+          <div class="p-4">
+            <h3 class="font-medium mb-2">${video.title}</h3>
+            <div class="flex justify-between items-center">
+              <span class="text-sm text-gray-400">${video.duration}</span>
+              <a href="${video.link}" target="_blank" 
+                 class="red-btn px-6 py-2 rounded-lg text-sm font-medium">Download</a>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+  </script>
+</body>
+</html>
